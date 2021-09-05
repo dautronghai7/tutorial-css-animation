@@ -1,0 +1,67 @@
+.moon{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 50%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #d8d8d8;
+    box-shadow: inset 15px 15px 10px #999; /*Thuoc tinh inset do bong phia trong duong vien*/
+}
+.dog{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    background: transparent url('dog.png') 0 0 no-repeat;
+    width: 302px;/*Tong chieu dai cua hinh 6342. Tong so hinh 21 -> moi hinh co chieu dai la 302*/
+    height: 205px;
+    transform: translate(-50%, -50%);
+    margin: 2em auto;
+    animation: run 1s steps(21) infinite; /*Set key frame run for animation*/
+}
+@keyframes run {
+    100%{
+        background-position: -6342px, 0;        
+    }   
+}
+
+p.loading{
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    font-family: monospace;
+    left: 0;
+    bottom: -50px;
+    color: #4c4c4c;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #737373;
+    text-align: center;
+}
+input.left, input.right, span.left, span.right{
+    position: absolute;
+    top: -20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 20;
+}
+span.left, span.right{
+    pointer-events: none;
+    color: #4c4c4c;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #737373;
+}
+input.left, span.left{
+    left: 0;
+}
+input.right, span.right{
+    right: 0;
+}
+input.right, input.left{
+    opacity: 0;
+}
+.left:checked ~ .dog{
+    transform: translate(-50%, -50%) rotateY(180deg);
+}
